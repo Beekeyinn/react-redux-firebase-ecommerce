@@ -21,7 +21,7 @@ export const fetchCartData = () => {
   };
 };
 
-export const sendCartData = (cart) => {
+export const sendCartData = (cart,message="updated") => {
   return async (dispatch) => {
     dispatch(
       uiActions.showNotification({
@@ -35,7 +35,7 @@ export const sendCartData = (cart) => {
       dispatch(
         uiActions.showNotification({
           open: true,
-          message: "successfully added to cart",
+          message: message,
           type: "success",
         })
       );

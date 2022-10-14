@@ -6,7 +6,9 @@ const CartItem = ({ name, quantity, total, price, id }) => {
   const dispatch = useDispatch();
   const removeHandler = () => {
     dispatch(cartActions.removeFromCart(id));
-    dispatch(uiActions.cartChanged());
+    dispatch(
+      uiActions.cartChanged({ change: true, message: "successfully removed." })
+    );
   };
   const addHandler = () => {
     dispatch(
@@ -16,7 +18,9 @@ const CartItem = ({ name, quantity, total, price, id }) => {
         price,
       })
     );
-    dispatch(uiActions.cartChanged());
+    dispatch(
+      uiActions.cartChanged({ change: true, message: "successfully added." })
+    );
   };
   return (
     <div className="cartItem">

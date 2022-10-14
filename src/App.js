@@ -10,23 +10,24 @@ function App() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const cart = useSelector((state) => state.cart);
   const notification = useSelector((state) => state.ui.notification);
-  const cartChanged = useSelector((state) => state.ui.cartChanged);
+  const { change, message } = useSelector((state) => state.ui.cartChanged);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchCartData());
   }, [dispatch]);
+
   useEffect(() => {
     if (firstRender) {
       firstRender = false;
       return;
     }
-    if (cartChanged) {
-      dispatch(sendCartData(cart));
+    if (change) {
+      dispatch(sendCartData(cart, message));
     }
     return () => {};
-  }, [cart, dispatch, cartChanged]);
+  }, [cart, dispatch, change, message]);
   return (
     <div className="App">
       {notification && (

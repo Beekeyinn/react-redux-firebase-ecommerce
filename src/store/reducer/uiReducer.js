@@ -10,5 +10,6 @@ export const showCart = (state, action) => {
 };
 
 export const cartChanged = (state, action) => {
-  state.cartChanged = !state.cartChanged;
+  state.cartChanged.change = action.payload.change;
+  state.cartChanged.message = action.payload.message;
 };

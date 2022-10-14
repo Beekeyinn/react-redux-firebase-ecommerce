@@ -5,7 +5,10 @@ export const uiSlice = createSlice({
   initialState: {
     notification: null,
     showCart: false,
-    cartChanged: false,
+    cartChanged: {
+      change: false,
+      message: "updated",
+    },
   },
   reducers: {
     showNotification,

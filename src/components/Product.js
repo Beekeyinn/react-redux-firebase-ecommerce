@@ -13,7 +13,7 @@ const Product = ({ name, id, imgURL, price }) => {
         price,
       })
     );
-    dispatch(uiActions.cartChanged());
+    dispatch(uiActions.cartChanged({change:true, message: "successfully added." }));
   };
   return (
     <div className="card">
